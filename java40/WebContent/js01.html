@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 연습</title>
+	<script type="text/javascript">
+	
+/* 	alert("환영합니다!"); alert("환영합니다!") 한 줄에 두개를 쓰고 싶으면 세이콜론을 넣어야 한다.*/
+		//alert("환영합니다!") 확인용!, 함수(function)
+		//data = confirm("당신은 아침을 먹었나요?!") //var은 생략가능 하다.
+		//console.log('당신은 입력한 값은 ' + data) //내장형 객체
+		//location.href = 'http://www.naver.com'
+		//document.write('<h1>나는 브라우저 body영역에 쓰여짐</h1>')
+		
+		name = prompt('당신의 이름을 입력')
+		age = prompt('당신의 나이를 입력')
+		console.log('당신의 이름은'+name)
+		console.log('당신의 나이는'+age)
+		
+		count = name.length
+		console.log('당신이 입력한 이름의 글자수는'+count)
+		
+		age2 = parseInt(age)
+		if (age2 > 100) {
+			console.log('100세를 초과했습니다.')
+		}else{
+			console.log('100세 미만입니다.')
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

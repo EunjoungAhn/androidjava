@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 문제</title>
+<script type="text/javascript">
+	function check() {
+		id2 = document.getElementById('id2').value
+		if (id2.length < 5 ) {
+			document.getElementById('idspan').innerHTML ='아이디는 5자 이상이 필수입니다.'
+		}else{
+			document.getElementById('idspan').innerHTML ='멋진 아이디어네요!'
+		}
+	}
+	
+	function pwCheck() {
+		pw1 = document.getElementById('pw1').value
+		pw2 = document.getElementById('pw2').value
+		if (pw1 == pw2 ) {
+			document.getElementById('pwspan').innerHTML ='비밀번호가 같습니다.'
+		}else{
+			document.getElementById('pwspan').innerHTML ='비밀번호가 다릅니다!'
+		}
+	}
+</script>
+</head>
+<body>
+<form action="equal.jsp">
+		아이디<input type="text" id="id2" name="id2">
+		<span id="idspan"></span><br>
+		<button>아이디 중복체크</button><br>
+	</form>
+		패스워드 확인<input type="text" id="pw2" name="pw2"><br>
+		패스워드<input type="text" id="pw1" name="pw1"><br>
+		<span id="pwspan"></span><br>
+		<button onclick="check()">아이디 사용가능 체크</button>
+		<button onclick="pwCheck()">비밀번호 확인</button>
+</body>
+</html>

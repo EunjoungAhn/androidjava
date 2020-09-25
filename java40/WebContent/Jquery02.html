@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 패스워드 확인 문제</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('button').click(function() {
+			pw1Value = $('#pw1').val()
+			pw2Value = $('#pw2').val()
+
+			if (pw1Value == pw2Value) {
+				$('span').text('비밀번호가 같습니다.')
+			} else {
+				$('span').text('비밀번호가 틀립니다.')
+			}
+		})
+	})
+</script>
+</head>
+<body>
+	비밀번호:	<input id="pw1"><br>
+	비밀번호 확인: <input id="pw2">	<br>
+	<button>비밀번호 확인</button>
+	<span></span>
+</body>
+</html>
