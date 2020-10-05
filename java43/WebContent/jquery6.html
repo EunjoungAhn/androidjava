@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 boolean쓰면 안되는 예</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({
+				url:"check.jsp",
+				data:{
+					id : $('#id').val()
+				},
+				success: function(result) {
+					console.log(result)
+					if (result == 0) {
+						$('#d1').html('중복된 id입니다.')
+					}else if(result == 1){
+						$('#d1').html('사용한 id입니다.')
+					}
+				}//success
+			})//ajax
+		})//b1 click
+		
+		$('#b2').click(function() {
+			$.ajax({
+				url: "reply.jsp",
+				data: {
+					reply: $('#reply').val()
+				},
+				success: function(result) {
+					$('#d2').append(result)
+				}//success
+			})//ajax
+		})//b2 click
+		
+		$('#b3').click(function() {
+			$.ajax({
+				url: "img.jsp",
+				success: function(result) {
+					$('#d2').append(result)
+				}//success
+			})//ajax
+		})//b3 click
+		
+		$('#b4').click(function() {
+			$.ajax({
+				url: "textImg.jsp",
+				data: {
+					reply: $('#reply').val()
+				},
+				success: function(result) {
+					$('#d2').append(result)
+				}//success
+			})//ajax
+		})//b3 click
+		
+	})//ready
+</script>
+</head>
+<body>
+	가입할 id입력: <input type="text" id="id">
+	<button id="b1">id중복체크</button>
+	<hr>
+	<div id="d1"></div>
+	<hr>
+	댓글 텍스트 입력: <input type="text" id="reply">
+	<button id="b2">댓글달기(텍스트)</button>
+	<button id="b3">댓글달기(텍스트)</button>
+	<button id="b4">댓글달기(텍스트+이미지)</button>
+	<hr>
+	<div id="d2"></div>
+</body>
+</html>

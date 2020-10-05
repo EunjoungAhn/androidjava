@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리</title>
+	<script type="text/javascript">
+		function food(time) {/* (time) 매개변수, 파라메터 */
+			/* 처리하는데 있어 입력값의 역할 */
+			console.log(time+'시에 아침을 먹었어요!! 확임함!!');
+			if (time >= 8) {
+				console.log('지각이에요');
+			}else{
+				console.log('지각 아니에요!');
+			}
+			/* return ok; 자바스크립트에서는 retun만 선언하고 자료형은 선언 안한다.*/
+		}
+	</script>
+</head>
+<body>
+	<button onclick="food(8)">기능 처리가 함수 중심으로</button>
+</body>
+</html>

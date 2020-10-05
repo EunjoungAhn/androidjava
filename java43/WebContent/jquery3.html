@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			//데이터를 기다렸다가 실행된다.
+			//b1클 클릭했을때 ajax를 실행해주세요.	
+			//비동기통신
+			$.ajax({//ajax를 사용하기 위한 함수
+				url : "call.jsp",
+				data: {
+					age: $('#age').val()
+					//값으로 인식하기 위해서 ""로 감싸준다.
+					//만약 ""없이 홍길동 을 넣으면 변수로 인식한다.
+				}, 
+				success : function(result) {
+					alert("성공!!")
+					console.log("받은 데이터:"+result)
+					if (result == '성인') {
+						location.href="http://www.naver.com"
+					}else{
+						alert('성인 아님')	
+					}
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	나이 <input type="text" id="age">
+	<button id="b1">성인판별해보자!</button>
+</body>
+</html>
