@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bbs">
+	<!-- 태그마다 id설정이 따로 따로 있다. -->
+	<insert id="create" parameterType="bbsVO">
+	<!-- sql문 작성  -->
+	<!-- $과 #의 el의 차이는 #은 sql을 만들고 나중에 값을 넣겠다라고 하는 것이다.  -->
+		insert into bbs values (#{no}, #{title}, #{content}, #{writer})
+	</insert>
+	<!-- 테이블당 mapper파일을 만들어 설정한다.  -->
+	<select id="one" parameterType="bbsVO" resultType="bbsVO">
+		select * from bbs where no = #{no}
+	</select>
+	<select id="list" resultType="bbsVO">
+		select * from bbs 
+	</select>
+	<update id="update" parameterType="bbsVO">
+		update bbs set title = #{title} where no = #{no} 
+	</update>
+	<delete id="delete" parameterType="bbsVO">
+		delete from bbs where no = #{no}
+	</delete>
+</mapper>
