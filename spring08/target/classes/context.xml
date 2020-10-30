@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- 0. context의 설정을 잡아주는 태그 
+context: <<namespace(ns) : 태그들의 역할을 구분해주기 위한 이름 공간 
+하단에서 설정 해줘야 한다. -->
+<context:property-placeholder location="classpath:db.properties"/>
+
+<!-- dao <3 < 2 < 1 < 0 순으로 조립 -->
+
+<!-- 1. dbcp 설정 객체 -->
+<!-- DBCP dbcp = new DBCP(); -->
+<bean id = "dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+<!-- property를 이용해 set메서드를 사용하는 것 처럼 멤버 변수의 값 설정-> 프로퍼티 파일 0.을 밖으로 빼서 참조 -->
+	<property name="driverClassName" value="${jdbc.driver}"></property>
+	<property name="url" value="${jdbc.url}"></property>
+	<property name="username" value="${jdbc.id}"></property>
+	<property name="password" value="${jdbc.pw}"></property>
+</bean>
+
+
+<!-- 2. mybatis 관련 설정 객체 -->
+<!-- mybatis 설정만 담당하는 라이브러리 : sql문 정의, sql문만 계속 만드는 '팩토리' => mapper -->
+<bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- mapper를 정의할 config의 위치를 정의한다. -->
+	<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+<!-- 1과 연결한다. -->
+	<property name="dataSource" ref="dbcp"></property>
+</bean>
+
+
+<!-- 3. mybatis 원래 객체 -->
+<bean id ="mybatis" class="org.mybatis.spring.SqlSessionTemplate">
+<!-- 생성자를 조립해준다 -->
+<!-- 파라메터 있는 생성자 호출시, 생성자 순서대로 써준다. -->
+	<constructor-arg ref="config"></constructor-arg>
+</bean>
+
+
+</beans>

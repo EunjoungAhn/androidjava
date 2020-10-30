@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- context 로 설정한 태그를 찾아주는 -->
+<!-- 하단의 Namespaces를 가서 context를 설정한다. -->
+<context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+
+<!-- dao < 3 < 2 < 1 최종적으로 3번을 쓰고 dao에 낀다.  -->
+<!-- 1.dbcp  -->
+<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="${jdbc.driver}"></property>
+	<!--참조형을 넣어야 하면 ref를 넣어야 하고, string 변수는 value로 설정하면 된다. -->
+	<property name="url" value="${jdbc.url}"></property>
+	<property name="username" value="${jdbc.id}"></property>
+  <property name="password" value="${jdbc.pw}"></property>
+</bean>
+<!-- 2.mybatis 관련 - 설정과 관련된 객체  -->
+<!-- sql문 담당 -->
+<bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- ref 와 value는 어떤것을 찾아 연결할 것인지를 적어 두는 것이다.  -->
+	<property name="configLocation" value="classpath:mybatis-config.xml"></property>	
+	<property name="dataSource" ref="dbcp"></property>
+</bean>
+<!-- 3.mybatis 원래 객체  -->
+<bean id="mybatis" class="org.mybatis.spring.SqlSessionTemplate">
+<!-- 파라메터있는 생성자 호출시, 생성자(constructor) 파라메터 순서대로 써준다.  -->
+	<constructor-arg ref="config"></constructor-arg>
+	<!-- 지금은 파라메터를 하나 받아 오기 때문에 한개만 적었다. 
+	파라메터에 따라 2개, 3개가 될 수 있다.-->
+</bean>
+</beans>

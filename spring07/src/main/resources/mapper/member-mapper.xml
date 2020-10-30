@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+														<!-- 만든 MemberVO 를 가져온다. -->
+	<insert id="insert" parameterType="memberVO">
+		insert into member values(#{id}, #{pw}, #{name}, #{tel})
+	</insert>
+	<update id="update" parameterType="memberVO">
+		update member set tel = #{tel} where id = #{id}
+	</update>
+	<delete id="delete" parameterType="memberVO">
+		delete from member where id = #{id}
+	</delete>
+	<!-- 입력 값 parameterType 이 없어서 sql 조건도 안 넣는다.  -->
+	<select id="list" resultType="memberVO">
+		select * from member
+	</select>
+		<!-- 입력 값 parameterType, 반환이 있으면 resultType  -->
+	<select id="one" parameterType="memberVO" resultType="memberVO">
+		select * from member where id = #{id}
+	</select>
+</mapper>
