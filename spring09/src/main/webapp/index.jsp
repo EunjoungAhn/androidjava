@@ -54,8 +54,8 @@ core 두번째 if문 확인 -
 <c:if test="${num eq '10'}">10입니다.</c:if>
 <c:if test="${num != '10'}" >10이 아닙니다.</c:if>
 <hr color="gray">
-<sql:update dataSource="${db}">
+<%-- <sql:update dataSource="${db}">
 	insert into bbs values(4, "java", "Nice", "c")
-</sql:update>
+</sql:update> --%>
 </body>
 </html>
