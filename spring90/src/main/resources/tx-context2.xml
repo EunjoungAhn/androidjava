@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		  <property name="dataSource" ref="dbcp"/>
+		</bean>
+<!-- Transaction을 위한 AOP 설정 -->
+ <!-- 내부적으로 aspect 클래스가 들어있음 /조언: aspect class + advice 가 합쳐진 형태 -->
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="tran" expression="execution(public * com.mega.mvc05.*.tran(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="tran" />
+	</aop:config> 
+
+	<!-- 선언적 Transaction 설정  -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes><!-- advice 지정 -->
+			<tx:method name="tran" rollback-for="Exception" /><!-- 예외가 발생하면 rollback을 해라 -->
+		</tx:attributes>    
+ 	</tx:advice> 
+ 	
+</beans>
