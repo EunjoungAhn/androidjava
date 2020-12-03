@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+
+    <Button
+        android:id="@+id/b"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/design_default_color_primary"
+        android:text="나를 눌러봐봐!"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="숫자1"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/e1"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/cardview_light_background"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="숫자2"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/e2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/cardview_light_background"
+        android:ems="10"
+        android:inputType="number" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/b2"
+            android:layout_width="119dp"
+            android:layout_height="69dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginBottom="100dp"
+            android:background="@color/design_default_color_primary"
+            android:text="Button"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="115dp"
+            android:layout_height="73dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/cardview_light_background"
+            android:text=""
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
