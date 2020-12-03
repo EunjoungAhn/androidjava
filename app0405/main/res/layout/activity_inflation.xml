@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WebAddActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:backgroundTint="#00AF16"
+            >
+
+            <Button
+                android:id="@+id/btnInf1"
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F83E1A"
+                android:text="인플레이션1">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btnInf2"
+                android:layout_width="204dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1B67FF"
+                android:text="인플레이션2">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnInf3"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:text="인플레이션3"></Button>
+
+    </LinearLayout>
+
+</LinearLayout>
