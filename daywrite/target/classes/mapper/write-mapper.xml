@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="write">
+    <!-- 추가하기  -->
+	<insert id="add" parameterType="writeVO">
+		INSERT INTO addWrite(addID, uID, addDate, content) VALUES (null, #{uID}, #{addDate}, #{content})
+	</insert>
+	<!-- 전체 검색하기  -->
+	<select id="list" parameterType="writeVO" resultType="writeVO">
+		select * from addWrite order by addID DESC
+	</select>
+	<!--삭제하기  -->
+	<delete id="delete" parameterType="writeVO">
+		delete from addWrite where addID = #{addID}
+	</delete>
+	<!--수정하기  -->
+	<update id="update" parameterType="writeVO">
+		update addWrite set addDate = #{addDate}, addDate = #{addDate},	content = #{content} where addID = #{addID}
+	</update>
+	<!-- 하나 검색하기 -->
+	<select id="one" parameterType="writeVO" resultType="writeVO">
+		select * from addWrite where addID = #{addID}
+	</select>
+	
+</mapper>
